@@ -1,0 +1,368 @@
+{
+  "task": "B1",
+  "seed": 42,
+  "env": {
+    "python": "3.10.12",
+    "sklearn": "1.5.2",
+    "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+    "cpu_count": 8
+  },
+  "dataset": {
+    "samples": 17880,
+    "features_total": 15,
+    "n_numeric": 5,
+    "n_categorical": 7,
+    "n_text": 5,
+    "fraud": 866,
+    "real": 17014,
+    "fraud_pct": 4.84,
+    "missing_top": {
+      "department": 64.6,
+      "required_education": 45.3,
+      "benefits": 40.3,
+      "required_experience": 39.4,
+      "function": 36.1,
+      "industry": 27.4
+    },
+    "missing_salary_range": 84.0,
+    "median_words_real": 359,
+    "median_words_fraud": 228,
+    "vocab_size": 101177,
+    "n_train": 12516,
+    "n_val": 2682,
+    "n_test": 2682,
+    "majority_accuracy": 0.9516
+  },
+  "cv": [
+    {
+      "model": "LogisticRegression",
+      "best_params": {
+        "C": 10
+      },
+      "cv_pr_auc": 0.8719033213901621,
+      "fit_time_s": 251.1
+    },
+    {
+      "model": "LinearSVM",
+      "best_params": {
+        "C": 3
+      },
+      "cv_pr_auc": 0.8832432488540282,
+      "fit_time_s": 210.6
+    },
+    {
+      "model": "RandomForest",
+      "best_params": {
+        "max_depth": null
+      },
+      "cv_pr_auc": 0.8447660202712003,
+      "fit_time_s": 117.5
+    }
+  ],
+  "test": [
+    {
+      "model": "LogisticRegression",
+      "threshold": 0.72,
+      "precision": 0.9292035398230089,
+      "recall": 0.8076923076923077,
+      "f1": 0.8641975308641975,
+      "pr_auc": 0.9414933957417102,
+      "roc_auc": 0.9889438148058838,
+      "accuracy": 0.9876957494407159,
+      "tp": 105,
+      "fp": 8,
+      "fn": 25,
+      "tn": 2544,
+      "cv_pr_auc": 0.8719033213901621
+    },
+    {
+      "model": "LinearSVM",
+      "threshold": 0.13,
+      "precision": 0.9375,
+      "recall": 0.8076923076923077,
+      "f1": 0.8677685950413223,
+      "pr_auc": 0.9449878922771043,
+      "roc_auc": 0.9875421991801302,
+      "accuracy": 0.9880686055182699,
+      "tp": 105,
+      "fp": 7,
+      "fn": 25,
+      "tn": 2545,
+      "cv_pr_auc": 0.8832432488540282
+    },
+    {
+      "model": "RandomForest",
+      "threshold": 0.34,
+      "precision": 0.7647058823529411,
+      "recall": 0.8,
+      "f1": 0.7819548872180451,
+      "pr_auc": 0.8791586976496452,
+      "roc_auc": 0.9883138413310826,
+      "accuracy": 0.9783743475018642,
+      "tp": 104,
+      "fp": 32,
+      "fn": 26,
+      "tn": 2520,
+      "cv_pr_auc": 0.8447660202712003
+    },
+    {
+      "model": "Dummy (always real)",
+      "threshold": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pr_auc": 0.048471290082028336,
+      "roc_auc": 0.5,
+      "accuracy": 0.9515287099179717,
+      "tp": 0,
+      "fp": 0,
+      "fn": 130,
+      "tn": 2552,
+      "cv_pr_auc": null
+    }
+  ],
+  "best_model": "LinearSVM",
+  "thresholds": {
+    "LogisticRegression": {
+      "t_star": 0.72,
+      "val_f1": 0.9061224489795918,
+      "val_precision": 0.9652173913043478,
+      "val_recall": 0.8538461538461538
+    },
+    "LinearSVM": {
+      "t_star": 0.13,
+      "val_f1": 0.9037656903765691,
+      "val_precision": 0.9908256880733946,
+      "val_recall": 0.8307692307692308
+    },
+    "RandomForest": {
+      "t_star": 0.34,
+      "val_f1": 0.8301886792452831,
+      "val_precision": 0.8148148148148148,
+      "val_recall": 0.8461538461538461
+    }
+  },
+  "ablation": [
+    {
+      "feature_block": "structured",
+      "threshold": 0.53,
+      "precision": 0.4378698224852071,
+      "recall": 0.5692307692307692,
+      "f1": 0.49498327759197325,
+      "pr_auc": 0.4582184135779799,
+      "roc_auc": 0.9028303592958765,
+      "n_features": 263,
+      "fit_time_s": 1.1
+    },
+    {
+      "feature_block": "text",
+      "threshold": 0.07,
+      "precision": 0.9532710280373832,
+      "recall": 0.7846153846153846,
+      "f1": 0.8607594936708861,
+      "pr_auc": 0.9276031583800589,
+      "roc_auc": 0.9856432360742706,
+      "n_features": 20000,
+      "fit_time_s": 21.1
+    },
+    {
+      "feature_block": "combined",
+      "threshold": 0.13,
+      "precision": 0.9375,
+      "recall": 0.8076923076923077,
+      "f1": 0.8677685950413223,
+      "pr_auc": 0.9449878922771043,
+      "roc_auc": 0.9875421991801302,
+      "n_features": 20263,
+      "fit_time_s": 25.2
+    }
+  ],
+  "top_fraud_terms": [
+    [
+      "link",
+      1.8978100296374627
+    ],
+    [
+      "accion",
+      1.8473499722401863
+    ],
+    [
+      "money",
+      1.7488811799409996
+    ],
+    [
+      "timejob",
+      1.7232424635545445
+    ],
+    [
+      "tester",
+      1.6550455735193834
+    ],
+    [
+      "sales executive",
+      1.426512303125788
+    ],
+    [
+      "high school",
+      1.400911420104394
+    ],
+    [
+      "aptitude staffing",
+      1.393590954406693
+    ],
+    [
+      "club",
+      1.289614064484604
+    ],
+    [
+      "earliest",
+      1.2477918720377463
+    ],
+    [
+      "rn",
+      1.2340480105628722
+    ],
+    [
+      "leveraging career",
+      1.1569867797685525
+    ],
+    [
+      "aptitude",
+      1.1277937947940155
+    ],
+    [
+      "hospital",
+      1.1271531251063394
+    ],
+    [
+      "american",
+      1.1245128405524907
+    ]
+  ],
+  "top_real_terms": [
+    [
+      "client",
+      -1.083527242163689
+    ],
+    [
+      "english",
+      -1.079330044771486
+    ],
+    [
+      "exceptional",
+      -1.0613370605731198
+    ],
+    [
+      "50",
+      -1.0170171623666213
+    ],
+    [
+      "function_Writing/Editing",
+      -1.0168148077021226
+    ],
+    [
+      "prepare",
+      -1.008659032149331
+    ],
+    [
+      "software",
+      -1.003772341525647
+    ],
+    [
+      "industry_Restaurants",
+      -1.0016956729749031
+    ],
+    [
+      "hours",
+      -1.0015126923228397
+    ],
+    [
+      "allied",
+      -0.9841636845249613
+    ],
+    [
+      "function_Health Care Provider",
+      -0.975126898581255
+    ],
+    [
+      "procedures",
+      -0.9695888759343637
+    ],
+    [
+      "fun",
+      -0.9502550331885303
+    ],
+    [
+      "companies",
+      -0.9322689923673511
+    ],
+    [
+      "comfortable",
+      -0.9176147096084313
+    ]
+  ],
+  "top_structured": [
+    [
+      "department_Product Development",
+      0.9278695171993266
+    ],
+    [
+      "location_US, CA, ",
+      0.7674674103630263
+    ],
+    [
+      "location_PL, MZ, Warsaw",
+      0.7404040121012789
+    ],
+    [
+      "industry_Broadcast Media",
+      0.6698537615610891
+    ],
+    [
+      "function_Financial Analyst",
+      0.6452783416368665
+    ],
+    [
+      "industry_Accounting",
+      0.6326354108268522
+    ],
+    [
+      "industry_Airlines/Aviation",
+      0.5759556338831365
+    ],
+    [
+      "industry_Biotechnology",
+      0.5703507134150789
+    ]
+  ],
+  "n_fp": 7,
+  "n_fn": 25,
+  "dummy_accuracy": 0.9515287099179717,
+  "base_rate": 0.048471290082028336,
+  "fp_examples": [
+    [
+      "RN Clinical Informatics (near Casper, WY)",
+      117,
+      0,
+      1
+    ],
+    [
+      "Finance Assistant",
+      169,
+      0,
+      1
+    ],
+    [
+      "Accounting Clerk $15/hr",
+      279,
+      0,
+      1
+    ],
+    [
+      "Front Desk",
+      302,
+      1,
+      0
+    ]
+  ]
+}

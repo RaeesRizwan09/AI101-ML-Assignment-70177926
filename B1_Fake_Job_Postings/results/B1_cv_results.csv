@@ -1,0 +1,4 @@
+model,best_params,cv_pr_auc,fit_time_s
+LogisticRegression,{'C': 10},0.8719033213901621,251.1
+LinearSVM,{'C': 3},0.8832432488540282,210.6
+RandomForest,{'max_depth': None},0.8447660202712003,117.5
