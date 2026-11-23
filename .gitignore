@@ -1,0 +1,35 @@
+# ---- datasets: never committed, each task folder explains how to fetch them --
+# data/README.md IS committed, the payload next to it is not
+**/data/*
+!**/data/README.md
+*.parquet
+*.zip
+*.tar
+*.tar.gz
+
+# Task C3: cached CNN features, the JPEG cache, trained weights
+*.pt
+*.pth
+*.h5
+*.pkl
+*.npz
+*.npy
+checkpoints/
+*.ckpt
+
+# LaTeX build products (keep .tex and .pdf, drop intermediates)
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# python / editor noise
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
