@@ -1,0 +1,340 @@
+{
+  "task": "A1",
+  "seed": 42,
+  "env": {
+    "python": "3.10.12",
+    "sklearn": "1.5.2",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "platform": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+    "cpu_count": 8
+  },
+  "dataset": {
+    "samples": 569,
+    "features": 30,
+    "features_numeric": 30,
+    "features_categorical": 0,
+    "features_text": 0,
+    "target": "malignant (1) vs benign (0)",
+    "class_counts": {
+      "benign": 357,
+      "malignant": 212
+    },
+    "class_pct": {
+      "benign": 62.74,
+      "malignant": 37.26
+    },
+    "missing_pct": 0.0,
+    "n_train": 455,
+    "n_test": 114,
+    "n_val": 0,
+    "redundant_groups": [
+      [
+        "mean area",
+        "mean perimeter",
+        "mean radius",
+        "worst area",
+        "worst perimeter",
+        "worst radius"
+      ],
+      [
+        "area error",
+        "perimeter error",
+        "radius error"
+      ]
+    ]
+  },
+  "cv": [
+    {
+      "model": "LogisticRegression",
+      "best_params": {
+        "C": 1
+      },
+      "cv_auc_mean": 0.9957688338493291,
+      "cv_auc_std": 0.004665698474904977,
+      "cv_f1_mean": 0.9640480895915677,
+      "cv_f1_std": 0.020700447685741707,
+      "cv_recall_mean": 0.9529411764705882,
+      "cv_recall_std": 0.03989605872426629,
+      "cv_precision_mean": 0.9771428571428572,
+      "fit_time_s": 3.8,
+      "n_candidates": 6
+    },
+    {
+      "model": "SVM_RBF",
+      "best_params": {
+        "C": 10,
+        "gamma": 0.01
+      },
+      "cv_auc_mean": 0.9953560371517028,
+      "cv_auc_std": 0.005262146040859415,
+      "cv_f1_mean": 0.9668576806570661,
+      "cv_f1_std": 0.015726424802393425,
+      "cv_recall_mean": 0.9529411764705882,
+      "cv_recall_std": 0.03989605872426629,
+      "cv_precision_mean": 0.9830065359477125,
+      "fit_time_s": 0.7,
+      "n_candidates": 12
+    },
+    {
+      "model": "RandomForest",
+      "best_params": {
+        "max_depth": 8,
+        "min_samples_leaf": 1,
+        "n_estimators": 200
+      },
+      "cv_auc_mean": 0.9891124871001032,
+      "cv_auc_std": 0.006720635770965929,
+      "cv_f1_mean": 0.9464146236631636,
+      "cv_f1_std": 0.0247420351027263,
+      "cv_recall_mean": 0.9411764705882353,
+      "cv_recall_std": 0.04159451654038516,
+      "cv_precision_mean": 0.9528084415584417,
+      "fit_time_s": 25.1,
+      "n_candidates": 24
+    }
+  ],
+  "test": [
+    {
+      "model": "LogisticRegression",
+      "accuracy": 0.9649122807017544,
+      "precision": 0.975,
+      "recall": 0.9285714285714286,
+      "f1": 0.9512195121951219,
+      "roc_auc": 0.996031746031746,
+      "pr_auc": 0.994273631904294,
+      "tn": 71,
+      "fp": 1,
+      "fn": 3,
+      "tp": 39,
+      "fit_time_s": 3.8
+    },
+    {
+      "model": "SVM_RBF",
+      "accuracy": 0.9824561403508771,
+      "precision": 1.0,
+      "recall": 0.9523809523809523,
+      "f1": 0.975609756097561,
+      "roc_auc": 0.996031746031746,
+      "pr_auc": 0.9947089947089948,
+      "tn": 72,
+      "fp": 0,
+      "fn": 2,
+      "tp": 40,
+      "fit_time_s": 0.7
+    },
+    {
+      "model": "RandomForest",
+      "accuracy": 0.9649122807017544,
+      "precision": 1.0,
+      "recall": 0.9047619047619048,
+      "f1": 0.95,
+      "roc_auc": 0.9940476190476191,
+      "pr_auc": 0.9910571244001476,
+      "tn": 72,
+      "fp": 0,
+      "fn": 4,
+      "tp": 38,
+      "fit_time_s": 25.1
+    },
+    {
+      "model": "DummyMajority",
+      "accuracy": 0.631578947368421,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.5,
+      "pr_auc": 0.3684210526315789,
+      "tn": 72,
+      "fp": 0,
+      "fn": 42,
+      "tp": 0,
+      "fit_time_s": 0.01
+    },
+    {
+      "model": "kNN_k5",
+      "accuracy": 0.956140350877193,
+      "precision": 0.9743589743589743,
+      "recall": 0.9047619047619048,
+      "f1": 0.9382716049382716,
+      "roc_auc": 0.982308201058201,
+      "pr_auc": 0.9727913619290999,
+      "tn": 71,
+      "fp": 1,
+      "fn": 4,
+      "tp": 38,
+      "fit_time_s": 0.0
+    }
+  ],
+  "best_model": "LogisticRegression",
+  "best_model_rule": "highest 5-fold CV ROC-AUC on the training split",
+  "threshold_study": {
+    "target_recall": 0.95,
+    "t_star": 0.505,
+    "chosen_on": "out-of-fold training predictions",
+    "oof_at_050": 0.9529411764705882,
+    "oof_at_t_star": {
+      "recall": 0.9529411764705882,
+      "precision": 0.9759036144578314,
+      "fn": 8,
+      "fp": 4
+    },
+    "operating_points": [
+      {
+        "name": "\u03c4 = 0.50 (default)",
+        "threshold": 0.5,
+        "recall": 0.9285714285714286,
+        "precision": 0.975,
+        "f1": 0.9512195121951219,
+        "accuracy": 0.9649122807017544,
+        "fn": 3.0,
+        "fp": 1.0,
+        "tp": 39.0,
+        "tn": 71.0
+      },
+      {
+        "name": "\u03c4* = 0.505 (recall\u22650.95, OOF)",
+        "threshold": 0.505,
+        "recall": 0.9285714285714286,
+        "precision": 0.975,
+        "f1": 0.9512195121951219,
+        "accuracy": 0.9649122807017544,
+        "fn": 3.0,
+        "fp": 1.0,
+        "tp": 39.0,
+        "tn": 71.0
+      },
+      {
+        "name": "\u03c4 = 0.090 (recall\u22650.99, OOF)",
+        "threshold": 0.09,
+        "recall": 0.9761904761904762,
+        "precision": 0.8541666666666666,
+        "f1": 0.9111111111111111,
+        "accuracy": 0.9298245614035088,
+        "fn": 1.0,
+        "fp": 7.0,
+        "tp": 41.0,
+        "tn": 65.0
+      }
+    ]
+  },
+  "ablation": [
+    {
+      "model": "LogisticRegression | all 30 features",
+      "accuracy": 0.9649122807017544,
+      "precision": 0.975,
+      "recall": 0.9285714285714286,
+      "f1": 0.9512195121951219,
+      "roc_auc": 0.996031746031746,
+      "pr_auc": 0.994273631904294,
+      "tn": 71.0,
+      "fp": 1.0,
+      "fn": 3.0,
+      "tp": 39.0,
+      "fit_time_s": null,
+      "n_features": 30.0
+    },
+    {
+      "model": "LogisticRegression | reduced (23)",
+      "accuracy": 0.9736842105263158,
+      "precision": 1.0,
+      "recall": 0.9285714285714286,
+      "f1": 0.9629629629629629,
+      "roc_auc": 0.9950396825396826,
+      "pr_auc": 0.9932246808553429,
+      "tn": 72.0,
+      "fp": 0.0,
+      "fn": 3.0,
+      "tp": 39.0,
+      "fit_time_s": null,
+      "n_features": 23.0
+    }
+  ],
+  "top_features_rf": [
+    [
+      "worst perimeter",
+      0.14841203003984518
+    ],
+    [
+      "worst area",
+      0.13199657868178816
+    ],
+    [
+      "worst concave points",
+      0.11010292363658385
+    ],
+    [
+      "mean concave points",
+      0.08792664049386165
+    ],
+    [
+      "worst radius",
+      0.08540979904333845
+    ],
+    [
+      "mean radius",
+      0.060727094556673064
+    ],
+    [
+      "mean perimeter",
+      0.06048934934104411
+    ],
+    [
+      "mean area",
+      0.04428432231892602
+    ],
+    [
+      "mean concavity",
+      0.04414315687561597
+    ],
+    [
+      "worst concavity",
+      0.03224331893048213
+    ]
+  ],
+  "top_features_lr": [
+    [
+      "worst texture",
+      1.434093171033836
+    ],
+    [
+      "radius error",
+      1.2333251663808187
+    ],
+    [
+      "worst symmetry",
+      1.06126366217095
+    ],
+    [
+      "mean concave points",
+      0.952812831811984
+    ],
+    [
+      "worst concavity",
+      0.9114058021854953
+    ],
+    [
+      "area error",
+      0.9090290582882153
+    ],
+    [
+      "compactness error",
+      -0.9069248024192655
+    ],
+    [
+      "worst area",
+      0.9004766112545057
+    ],
+    [
+      "worst radius",
+      0.8969678339058831
+    ],
+    [
+      "mean concavity",
+      0.7822983533225185
+    ]
+  ],
+  "n_errors_at_t_star": 4,
+  "fn_at_t_star": 3,
+  "fp_at_t_star": 1
+}

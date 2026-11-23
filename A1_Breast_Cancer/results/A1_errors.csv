@@ -1,0 +1,5 @@
+test_row,true,p(malignant),predicted,mean radius,mean concavity,worst concave points
+16,malignant,0.061,benign,13.8,0.0779,0.1383
+87,malignant,0.315,benign,14.2,0.1981,0.1772
+112,malignant,0.492,benign,15.1,0.0755,0.1252
+4,benign,0.509,malignant,13.4,0.0282,0.0776
