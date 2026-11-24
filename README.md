@@ -12,7 +12,7 @@ by hand.
 |---|---|---|---|---|---|
 | **A1** | A (numerical) | Breast-cancer diagnosis, binary classification | Breast Cancer Wisconsin (Diagnostic), 569 × 30 | Logistic regression: F1 0.951, ROC-AUC 0.996 at τ\*=0.505 chosen on out-of-fold predictions | [PDF](A1_Breast_Cancer/report/70177926_A1_Report.pdf) |
 | **B1** | B (text) | Fraudulent job-posting detection, 1:20 imbalance | EMSCAD, 17,880 postings | Linear SVM on TF-IDF + structured fields: F1 0.868, PR-AUC 0.945 (base rate 0.048) | [PDF](B1_Fake_Job_Postings/report/70177926_B1_Report.pdf) |
-| **C3** | C (images) | Image captioning with a CNN encoder + LSTM decoder | Flickr8k, 8,091 images × 5 captions | <!--C3-RESULT--> | [PDF](C3_Image_Captioning/report/70177926_C3_Report.pdf) |
+| **C3** | C (images) | Image captioning with a CNN encoder + LSTM decoder | Flickr8k, 8,091 images × 5 captions | Frozen ResNet-50 + attention LSTM, beam $k{=}5$: BLEU-4 0.227 on 1,091 test images (merge decoder 0.202) | [PDF](C3_Image_Captioning/report/70177926_C3_Report.pdf) |
 
 ## Repository layout
 
@@ -60,7 +60,9 @@ themselves, but the notebooks resolve `figures/` and `results/` from the current
 * **B1** downloads a 50 MB CSV from Hugging Face once (path adopted automatically; see
   `B1_Fake_Job_Postings/data/README.md`).
 * **C3** downloads ~1.1 GB of Flickr8k once, then caches a frozen ResNet-50 feature pass
-  (~1.6 GB, git-ignored). On CPU the full run takes about an hour.
+  (~1.6 GB, git-ignored). On CPU the full run takes about 70 minutes: 18 min for feature
+  extraction, 9 min for the merge decoder, 34 min for the attention decoder, the rest for
+  decoding and controls.
 
 ## Reproducibility notes
 

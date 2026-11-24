@@ -1,5 +1,5 @@
 # AI-101 ML Assignment - Rizwan Ali (70177926)
-# Tested on Linux x86_64, Python 3.12, CPU only (no GPU).
+# Tested on Linux x86_64, Python 3.10, CPU only (no GPU).
 # Install:  python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
 #
 # torch/torchvision are the CPU wheels; on a CUDA machine drop the "+cpu" suffix.

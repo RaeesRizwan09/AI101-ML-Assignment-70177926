@@ -1,6 +1,6 @@
 # AI Use Disclosure
 
-**Student:** Rizwan Ali · **Roll No.** 70177926 · **Section:** [Section]
+**Student:** Rizwan Ali · **Roll No.** 70177926 · **Section:** A
 **Course:** AI-101, Department of Intelligent Systems, The University of Lahore
 **Instructor:** Dr. Muhammad Awais
 **Tasks attempted:** A1 (Breast Cancer Diagnosis), B1 (Fake Job Postings), C3 (Image Captioning)
@@ -63,12 +63,15 @@ Sections I–VII of the report.
 I verified this content by re-running the notebook end to end on CPU (hardware and wall-clock
 time are reported in the paper), by confirming that the train/validation/test split is made by
 **image**, so that none of an image's five captions can leak across splits, by checking that the
-vocabulary is built from training captions only, by confirming that all five references are
-passed to the BLEU scorer, and by reading the generated captions of the reported examples
-against their images. The loss curves, the BLEU table and the distinct-word counts are produced by
-the notebook and stored in `results/C3_results.json`; the report reads that file, so no number is
-typed by hand. All experiments, results and analysis in this report were produced and checked by
-me, and I take full responsibility for this work.
+vocabulary is built from training captions only, by asserting that every caption is paired with
+its own image's cached feature vector (a subset-position/global-row mismatch would silently turn
+the captioner into a pure language model), by scoring the validation set a second time with the
+image features permuted across images to confirm the decoder actually uses them, by confirming
+that all five references are passed to the BLEU scorer, and by reading the generated captions of
+the reported examples against their images. The loss curves, the BLEU table and the distinct-word
+counts are produced by the notebook and stored in `results/C3_results.json`; the report reads that
+file, so no number is typed by hand. All experiments, results and analysis in this report were
+produced and checked by me, and I take full responsibility for this work.
 
 ---
 
