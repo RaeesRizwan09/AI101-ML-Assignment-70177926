@@ -67,19 +67,6 @@ t_res = R.table(
     "Test-set results (n=2{,}682, 130 fraud), one evaluation. $\\tau$ chosen on validation to maximise F1; fraud is the positive class; best per column in bold.",
     "tab:res", size=r"\scriptsize")
 
-ab_rows = []
-for k in ["structured", "text", "combined"]:
-    a = abl[k]
-    ab_rows.append(
-        f"{k} & {a['n_features']:,} & {R.fmt(a['precision'])} & {R.fmt(a['recall'])} & "
-        f"{R.fmt(a['f1'])} & {R.bold_if(a['pr_auc'] == max(abl[x]['pr_auc'] for x in abl), R.fmt(a['pr_auc']))} & "
-        rf"{a['threshold']:.2f}" + r" \\")
-t_abl = R.table(
-    "lcccccc", r"Feature block & \#f & Prec. & Rec. & F1 & PR-AUC & $\tau$",
-    "\n".join(ab_rows),
-    f"Ablation with the {best} classifier, same splits and test set; only the feature block changes.",
-    "tab:abl", size=r"\scriptsize")
-
 f_eda = R.fig("figures/B1_fig1_eda.png",
               rf"(a) 1:20 class imbalance; (b) length distribution per class, as a density: fraudulent postings are markedly shorter (median {ds['median_words_real']} vs {ds['median_words_fraud']} words); (c) fraud rate by job type and company-logo presence (bar labels: postings in that job type). A missing logo raises the rate by roughly an order of magnitude in every job type.",
               "fig:eda")
@@ -176,7 +163,7 @@ excellent while never finding a fraud; PR-AUC is the fair summary because its ba
 base rate. The best model reaches {R.fmt(bt['pr_auc'])}, about
 {bt['pr_auc']/d['base_rate']:.1f}$\times$ the base rate.
 
-\textbf{{Does combining help?}} Table~\ref{{tab:abl}} answers this. Structured metadata alone
+\textbf{{Does combining help?}} An ablation answers this. Structured metadata alone
 is weak (PR-AUC {R.fmt(abl['structured']['pr_auc'])},
 F1 {R.fmt(abl['structured']['f1'])}): a missing logo or profile raises the odds, but most
 postings without a logo are genuine small employers. Text alone is nearly as good as the
