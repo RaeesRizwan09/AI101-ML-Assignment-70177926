@@ -1,6 +1,6 @@
 # AI Use Disclosure
 
-**Student:** Rizwan Ali · **Roll No.** 70177926 · **Section:** A
+**Student:** Rizwan Ali · **Roll No.** 70177926 · **Section:** C
 **Course:** AI-101, Department of Intelligent Systems, The University of Lahore
 **Instructor:** Dr. Muhammad Awais
 **Tasks attempted:** A1 (Breast Cancer Diagnosis), B1 (Fake Job Postings), C3 (Image Captioning)

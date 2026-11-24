@@ -2,7 +2,7 @@
 # # A1 — Breast Cancer Diagnosis from Cell-Nucleus Measurements
 #
 # **Course:** AI-101 Introduction to Artificial Intelligence — Machine Learning Assignment
-# **Student:** Rizwan Ali · Roll No. 70177926 · Section [Section]
+# **Student:** Rizwan Ali · Roll No. 70177926 · Section C
 # **Repository:** https://github.com/[username]/AI101-ML-Assignment-70177926
 #
 # This notebook is the *single source of truth* for the A1 report. Every number that

@@ -2,7 +2,7 @@
 # # Task C3 — Image Captioning with a CNN Encoder and an LSTM Decoder
 #
 # **Course:** AI-101, Department of Intelligent Systems, The University of Lahore
-# **Student:** Rizwan Ali (Roll No. 70177926)
+# **Student:** Rizwan Ali (Roll No. 70177926) · Section C
 #
 # A frozen ImageNet ResNet-50 encodes an image; an LSTM decodes a caption word by word.
 # Two decoders are trained on identical splits and vocabulary:

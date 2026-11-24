@@ -1,6 +1,6 @@
 # AI-101 — Machine Learning Assignment
 
-**Student:** Rizwan Ali · **Roll No.** 70177926 · **Section:** A
+**Student:** Rizwan Ali · **Roll No.** 70177926 · **Section:** C
 **Course:** Introduction to Artificial Intelligence (AI-101), Department of Intelligent Systems,
 The University of Lahore · **Instructor:** Dr. Muhammad Awais
 

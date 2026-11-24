@@ -2,7 +2,7 @@
 # # B1 — Detecting Fraudulent Job Postings
 #
 # **Course:** AI-101 Introduction to Artificial Intelligence — Machine Learning Assignment
-# **Student:** Rizwan Ali · Roll No. 70177926 · Section [Section]
+# **Student:** Rizwan Ali · Roll No. 70177926 · Section C
 # **Repository:** https://github.com/[username]/AI101-ML-Assignment-70177926
 #
 # Mixed-modality task: numeric + categorical + free text in one pipeline. The mandatory

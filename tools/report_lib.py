@@ -16,7 +16,7 @@ STUDENT = {
     "roll": "70177926",
     # the section is read from the environment so that one PDF can be built per section
     # (AI101_SECTION=B python B1_report.py) without touching the sources
-    "section": os.environ.get("AI101_SECTION", "A").strip(),
+    "section": os.environ.get("AI101_SECTION", "C").strip(),
     "github": "RaeesRizwan09",
 }
 REPO = f"https://github.com/{STUDENT['github']}/AI101-ML-Assignment-{STUDENT['roll']}"
