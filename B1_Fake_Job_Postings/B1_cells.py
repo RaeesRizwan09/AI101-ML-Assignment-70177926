@@ -3,7 +3,7 @@
 #
 # **Course:** AI-101 Introduction to Artificial Intelligence — Machine Learning Assignment
 # **Student:** Rizwan Ali · Roll No. 70177926 · Section C
-# **Repository:** https://github.com/[username]/AI101-ML-Assignment-70177926
+# **Repository:** https://github.com/RaeesRizwan09/AI101-ML-Assignment-70177926
 #
 # Mixed-modality task: numeric + categorical + free text in one pipeline. The mandatory
 # ablation (structured-only vs text-only vs combined) is run in §6.4 on the same test set.

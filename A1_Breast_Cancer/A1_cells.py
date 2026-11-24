@@ -3,7 +3,7 @@
 #
 # **Course:** AI-101 Introduction to Artificial Intelligence — Machine Learning Assignment
 # **Student:** Rizwan Ali · Roll No. 70177926 · Section C
-# **Repository:** https://github.com/[username]/AI101-ML-Assignment-70177926
+# **Repository:** https://github.com/RaeesRizwan09/AI101-ML-Assignment-70177926
 #
 # This notebook is the *single source of truth* for the A1 report. Every number that
 # appears in `70177926_A1_Report.pdf` is written by this notebook into
